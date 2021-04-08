@@ -10,9 +10,15 @@ import { Heroe } from '../interfaces/heroes.interface';
 })
 export class HeroesService {
 
+  url: string = 'http://localhost:3000/heroes';
+
   constructor( private _http: HttpClient ) { }
 
   getHeroes(): Observable<Heroe[]>{
-    return this._http.get<Heroe[]>('http://localhost:3000/heroes');
+    return this._http.get<Heroe[]>(this.url);
+  }
+
+  getHeroePorId( id: string ): Observable<Heroe>{
+    return this._http.get<Heroe>(`${this.url}/${id}`);
   }
 }
