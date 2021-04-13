@@ -12,13 +12,12 @@ import { Heroe } from '../interfaces/heroes.interface';
 export class HeroesService {
 
   private baseUrl: string = environment.baseUrl;
-  private production: string = (environment.production) ? '.json' : '';
   
 
   constructor( private _http: HttpClient ) { }
 
   getHeroes(): Observable<Heroe[]>{
-    return this._http.get<Heroe[]>(`${ this.baseUrl }/heroes${ this.production }`);
+    return this._http.get<Heroe[]>(`${ this.baseUrl }/heroes`);
   }
 
   getHeroePorId( id: string ): Observable<Heroe>{
