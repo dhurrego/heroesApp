@@ -25,7 +25,11 @@ export class HeroesService {
   }
 
   getSugerencias( termino: string ): Observable<Heroe[]>{
-    return this._http.get<Heroe[]>(`${ this.baseUrl }/heroes?q=${ termino }&_limit=6`);
+    if(!environment.production){
+      return this._http.get<Heroe[]>(`${ this.baseUrl }/heroes?q=${ termino }&_limit=6`);
+    }else{
+      return this._http.get<Heroe[]>(`${ this.baseUrl }/heroes?search=${ termino }`);
+    }
   }
 
   agregarHeroe( heroe: Heroe ): Observable<Heroe> {
