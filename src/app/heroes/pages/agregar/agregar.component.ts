@@ -43,7 +43,7 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this._router.url.includes('editar')){
+    if(!this._router.url.includes('editar')){
       return;
     }
     
@@ -77,8 +77,15 @@ export class AgregarComponent implements OnInit {
         }
       );
     }
+  }
 
-
+  borrar() {
+    this._heroesService.borrarHeroe( this.heroe.id! ).subscribe(
+      resp => {
+        console.log(`Borrando`, resp);
+        this._router.navigate(['/heroes']);
+      }
+    );
   }
 
 }
