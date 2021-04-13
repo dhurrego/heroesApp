@@ -12,6 +12,9 @@ const routes: Routes = [
     loadChildren: () => import( './heroes/heroes.module' ).then( m => m.HeroesModule )
   },
   {
+    path: '',   redirectTo: '/heroes/listado', pathMatch: 'full'
+  },
+  {
     path: '404',
     component: ErrorPageComponent
   },
@@ -23,7 +26,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot( routes )
+    RouterModule.forRoot( routes, { useHash: true } )
   ],
   exports: [
     RouterModule
