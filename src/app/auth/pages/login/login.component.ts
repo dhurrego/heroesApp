@@ -5,8 +5,11 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [
-  ]
+  styles: [`
+    h1 {
+      text-align: center;
+    }
+  `]
 })
 export class LoginComponent {
 
