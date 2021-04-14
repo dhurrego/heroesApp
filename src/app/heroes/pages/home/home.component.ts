@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit {
     // Ir al backend
 
     // Confirmar si el usuario existe
-
-    this._router.navigate(['/auth'])
+    this._authService.logout();
+    this._router.navigate(['/auth']);
 
   }
 
