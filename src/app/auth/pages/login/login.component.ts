@@ -17,7 +17,6 @@ export class LoginComponent {
     this._authService.login().subscribe(
       usuario => {
         if(usuario.id){
-          console.log(usuario);
           this._router.navigate(['/heroes']);
         }
       }
